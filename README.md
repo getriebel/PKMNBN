@@ -17,4 +17,29 @@ X = Player position
 
 Each so-called NetPkmn (NetPokemon), an amalgam of Pokemon and MMBN's NetNavis, comes with a unique set of BattleChips that can be used to deplete your opponent's HP (hit points) while moving on your 3x3 half of the grid.
 
+## Gameplay
+### Game Controls
+### BattleChips
+### Types / Elements
+BattleChips as well as NetPkmn have have types or elements, a game element utilized in MMBN as well as Pokemon; although the latter features one of the more complex type/elemantal systems among JRPGs. Hence, PKMNBN relies on the elemental types from MMBN for simplification:
+- 🌱 Wood: includes grass, poison and bug NetPkmn
+- 💧 Aqua: includes all water and ice NetPkmn
+- 🔥 Fire: includes fire NetPkmn as well as some rock (and/or ground) NetPkmns and most dragons
+- ⚡ Elec: includes all electric and many steel NetPkmn
+- ⚪ Norm: includes normal (incl. later fairy) NetPkmn and clearly non-elemental NetPkmn (e.g. psychic, ghost, dark, fighting)
+- 💨 Air: includes non-elemental flying as well as some dragon NetPkmn
+
+###  NetPkmn
+#### Bulbasaur
+- **Type:** 🌱
+#### Squirtle
+- **Type:** 💧
+#### Charmander
+- **Type:** 🔥
+#### Pichu
+- **Type:** ⚡
+#### Pidgey *(coming soon)*
+- **Type:** 💨
+#### Happiny *(coming soon)*
+- **Type:** ⚪
 
