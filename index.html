@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PKMNBN</title>
+    <link rel="stylesheet" href="pkmnbn-style.css">
+    <link rel="icon" type="image/x-icon" href="img/pkmnbn-favicon.png">
+</head>
+<body>
+
+    <div id="game-board">
+        <div class="cell" id="cell-0-0"></div>
+        <div class="cell" id="cell-0-1"></div>
+        <div class="cell" id="cell-0-2"></div>
+        <div class="cell" id="cell-1-0"></div>
+        <div class="cell" id="cell-1-1"></div>
+        <div class="cell" id="cell-1-2"></div>
+        <div class="cell" id="cell-2-0"></div>
+        <div class="cell" id="cell-2-1"></div>
+        <div class="cell" id="cell-2-2"></div>
+        <div class="cell" id="cell-3-0"></div>
+        <div class="cell" id="cell-3-1"></div>
+        <div class="cell" id="cell-3-2"></div>
+        <div class="cell" id="cell-4-0"></div>
+        <div class="cell" id="cell-4-1"></div>
+        <div class="cell" id="cell-4-2"></div>
+        <div class="cell" id="cell-5-0"></div>
+        <div class="cell" id="cell-5-1"></div>
+        <div class="cell" id="cell-5-2"></div>
+        <button class="start-btn" id="start-button" onclick="startGame()">Start game</button>
+    </div>
+    <div id="controls">
+        <div id="player1-controls">
+            <p><select id="NetPkmnPlayer1">
+                <option disabled selected  value="blastoise">Slct NetPkmn</option>
+                <option value="bulbasaur">Bulbasaur</option>
+                <option value="ivysaur" hidden>Ivysaur</option>
+                <option value="venusaur" hidden>Venusaur</option>
+                <option value="squirtle">Squirtle</option>
+                <option value="wartortle" hidden>Wartortle</option>
+                <option value="blastoise" hidden>Blastoise</option>
+                <option value="charmander">Charmander</option>
+                <option value="charmeleon" hidden>Charmeleon</option>
+                <option value="charizard" hidden>Charizard</option>
+                <option value="pichu">Pichu</option>
+                <option value="pikachu" hidden>Pikachu</option>
+                <option value="raichu" hidden>Raichu</option>
+            </select><br>
+            <input type="number" id="HP1" tabindex="-1">
+            <div id="player2-pad">
+                <table>
+                    <tr>
+                        <td></td>
+                        <td><button class="control-btn" onclick="movePlayer1('up')">&#11205</button></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><button class="control-btn" onclick="movePlayer1('left')">&#11207</button></td>
+                        <td></td>
+                        <td><button class="control-btn" onclick="movePlayer1('right')">&#11208</button></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button class="control-btn" onclick="movePlayer1('down')">&#11206</button></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="player1-attacks">
+                <img id="attack1Player1" src="img/battlechips/Shotgun.webp"  onclick="P1Shotgun()">
+                <img id="attack2Player1" src="img/battlechips/Sword.webp"  onclick="P1Sword()">
+                <button onclick="P1Evolve()">Preview Evolution</button>
+                <audio id="audioPlayer1">
+                    <source src="audio/tortoise.mp3">
+                </audio>
+            </div>
+        </div>
+        <div id="player2-controls">
+            <p><select id="NetPkmnPlayer2">
+                <option disabled selected  value="charizard">Slct NetPkmn</option>
+                <option value="bulbasaur">Bulbasaur</option>
+                <option value="ivysaur" hidden>Ivysaur</option>
+                <option value="venusaur" hidden>Venusaur</option>
+                <option value="squirtle">Squirtle</option>
+                <option value="wartortle" hidden>Wartortle</option>
+                <option value="blastoise" hidden>Blastoise</option>
+                <option value="charmander">Charmander</option>
+                <option value="charmeleon" hidden>Charmeleon</option>
+                <option value="charizard" hidden>Charizard</option>
+                <option value="pichu">Pichu</option>
+                <option value="pikachu" hidden>Pikachu</option>
+                <option value="raichu" hidden>Raichu</option>
+            </select><br>
+            <input type="number" id="HP2" tabindex="-1">
+            <div id="player2-pad">
+                <table>
+                    <tr>
+                        <td></td>
+                        <td><button class="control-btn" onclick="movePlayer2('up')">&#11205</button></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><button class="control-btn" onclick="movePlayer2('left')">&#11207</button></td>
+                        <td></td>
+                        <td><button class="control-btn" onclick="movePlayer2('right')">&#11208</button></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button class="control-btn" onclick="movePlayer2('down')">&#11206</button></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="player2-attacks">
+                <img id="attack1Player2" src="img/battlechips/Shotgun.webp"  onclick="P2Shotgun()">
+                <img id="attack2Player2" src="img/battlechips/Sword.webp"  onclick="P2Sword()">
+                <button onclick="P2Evolve()">Preview Evolvution</button>
+                <audio id="audioPlayer2">
+                    <source src="audio/charizard.mp3">
+                </audio>
+            </div>
+        </div>
+    </div>
+    <script type = "text/javascript" src="scripts/mechanics.js"></script>
+    <script type = "text/javascript" src="scripts/battlechips.js"></script>
+    <script type = "text/javascript" src="scripts/netpkmn.js"></script>
+</body>
+</html>

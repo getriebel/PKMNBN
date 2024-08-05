@@ -1,0 +1,104 @@
+@font-face {
+    font-family: 'MMBN';
+    src: url('misc/fonts/mmbn.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+p, option, select, input {
+    font-family: 'MMBN';
+    font-size: xx-small;
+    line-height: 2;
+}
+
+input {
+    pointer-events: none;
+    border: none;
+}
+
+/* Basic styles for the game board and cells */
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 60px);
+    grid-template-rows: repeat(6, 60px);
+    gap: 5px;
+    margin: 20px auto;
+    width: max-content;
+}
+
+.cell {
+    width: 60px;
+    height: 60px;
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-size: 24px;
+}
+
+/* Add red contour for top 3x3 grid */
+#cell-0-0, #cell-0-1, #cell-0-2,
+#cell-1-0, #cell-1-1, #cell-1-2,
+#cell-2-0, #cell-2-1, #cell-2-2 {
+    border: 2px solid red;
+}
+
+/* Add blue contour for bottom 3x3 grid */
+#cell-3-0, #cell-3-1, #cell-3-2,
+#cell-4-0, #cell-4-1, #cell-4-2,
+#cell-5-0, #cell-5-1, #cell-5-2 {
+    border: 2px solid blue;
+}
+
+.player-image {
+    width: 65px;
+    height: 65px;
+}
+
+/* Controls container styling */
+#controls {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+#player1-controls, #player2-controls {
+    display: grid;
+    grid-template-columns: repeat(2, 60px);
+    grid-gap: 10px;
+}
+
+/* Controller pad layout for player controls */
+.controller {
+    display: grid;
+    grid-template-columns: 60px 60px 60px;
+    grid-template-rows: 60px 60px 60px;
+    grid-gap: 5px;
+    justify-items: center;
+    align-items: center;
+}
+
+.start-btn {
+    width: 194px;
+    font-family: 'MMBN';
+    font-size:xx-small;
+}
+
+.control-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.highlightPlayer1 {
+    background-color: lightblue;
+}
+
+.highlightPlayer2 {
+    background-color: lightpink;
+}
