@@ -18,8 +18,6 @@ X = Player position
 Each so-called NetPkmn (NetPokemon), an amalgam of Pokemon and MMBN's NetNavis, comes with a unique set of BattleChips that can be used to deplete your opponent's HP (hit points) while moving on your 3x3 half of the grid.
 
 ## Gameplay
-### Game Controls
-### BattleChips
 ### Types / Elements
 BattleChips as well as NetPkmn have have types or elements, a game element utilized in MMBN as well as Pokemon; although the latter features one of the more complex type/elemantal systems among JRPGs. Hence, PKMNBN relies on the elemental types from MMBN for simplification:
 - 🌱 Wood: includes grass, poison and bug NetPkmn
@@ -29,7 +27,7 @@ BattleChips as well as NetPkmn have have types or elements, a game element utili
 - ⚪ Norm: includes normal (incl. later fairy) NetPkmn and clearly non-elemental NetPkmn (e.g. psychic, ghost, dark, fighting)
 - 💨 Air: includes non-elemental flying as well as some dragon NetPkmn
 
-###  NetPkmn
+### Starter NetPkmn
 #### Bulbasaur
 - **Type:** 🌱
 #### Squirtle
@@ -43,3 +41,8 @@ BattleChips as well as NetPkmn have have types or elements, a game element utili
 #### Happiny *(coming soon)*
 - **Type:** ⚪
 
+## Attributions and Credits
+- BattleChip attack information and images: [MegaMan Knowledge Base](https://megaman.fandom.com/wiki/Lists_of_Battle_Chips)
+- Pokemon sprites: [Pokemon Database/sprite archive](https://pokemondb.net/sprites)
+- Pokemon audios files:  [Pokemon Showdown](https://play.pokemonshowdown.com/audio/cries/)
+- MMBN font: [Dave on dafont.com](https://www.dafont.com/mega-man-battle-network.font)
