@@ -35,7 +35,7 @@ const pokemonStats = {
         "treshold": "0.6"
     },
     "happiny": {
-        "hp": "500",
+        "hp": "450",
         "element": "norm",
         "bonus": "heal",
         "evolution": "chansey",
