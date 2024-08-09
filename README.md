@@ -15,17 +15,18 @@ X = Player position
 ```
 (Note that the actual PKMN game is played on a 3x6 grid instead of MMBN's 6x3 grid as displayed above.)
 
-Each so-called NetPkmn (NetPokemon), an amalgam of Pokemon and MMBN's NetNavis, comes with a unique set of BattleChips that can be used to deplete your opponent's HP (hit points) while moving on your 3x3 half of the grid.
-
 ## Gameplay
-### Types / Elements
-BattleChips as well as NetPkmn have have types or elements, a game element utilized in MMBN as well as Pokemon; although the latter features one of the more complex type/elemantal systems among JRPGs. Hence, PKMNBN relies on the elemental types from MMBN for simplification:
+### Elements
+BattleChips as well as NetPkmn (NetPokemon), an amalgam of Pokemon and MMBN's NetNavis, have have types or elements, a game element utilized in MMBN as well as Pokemon; although the latter features one of the more complex type/elemantal systems among JRPGs. Hence, PKMNBN relies on the elemental types from MMBN for simplification:
 - 🌱 Wood: includes grass, poison and bug NetPkmn
 - 💧 Aqua: includes all water and ice NetPkmn
 - 🔥 Fire: includes fire NetPkmn as well as some rock (and/or ground) NetPkmns and most dragons
 - ⚡ Elec: includes all electric and many steel NetPkmn
 - ⚪ Norm: includes normal (incl. later fairy) NetPkmn and clearly non-elemental NetPkmn (e.g. psychic, ghost, dark, fighting)
+
+#### Sub-Elements / Types
 - 💨 Air: includes non-elemental flying as well as some dragon NetPkmn
+- 💗 Heal: includes (non-elemental) NetPokemon that focus on healing
 
 ### Starter NetPkmn
 #### Bulbasaur
@@ -39,7 +40,7 @@ BattleChips as well as NetPkmn have have types or elements, a game element utili
 #### Pidgey *(coming soon)*
 - **Type:** 💨
 #### Happiny *(coming soon)*
-- **Type:** ⚪
+- **Type:** 💗
 
 ## Attributions and Credits
 - BattleChip attack information and images: [MegaMan Knowledge Base](https://megaman.fandom.com/wiki/Lists_of_Battle_Chips)
