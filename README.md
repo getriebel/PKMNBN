@@ -22,11 +22,11 @@ BattleChips as well as NetPkmn (NetPokemon), an amalgam of Pokemon and MMBN's Ne
 - 💧 Aqua: includes all water and ice NetPkmn
 - 🔥 Fire: includes fire NetPkmn as well as some rock (and/or ground) NetPkmns and most dragons
 - ⚡ Elec: includes all electric and many steel NetPkmn
-- ⚪ Norm: includes normal (incl. later fairy) NetPkmn and clearly non-elemental NetPkmn (e.g. psychic, ghost, dark, fighting)
+- ⚪ Norm: includes normal NetPkmn and clearly non-elemental NetPkmn (e.g. psychic, ghost, dark, fighting)
 
 #### Sub-Elements / Types
 - 💨 Air: includes non-elemental flying as well as some dragon NetPkmn
-- 💗 Heal: includes (non-elemental) NetPokemon that focus on healing
+- 💗 Heal: includes fairy NetPkmn with a focus on healing
 
 ### Starter NetPkmn
 #### Bulbasaur
