@@ -1,4 +1,5 @@
 export const battlechipStats = {
+    // Cannon line
     "Cannon": {
         name: "Cannon",
         type: "attack",
@@ -32,6 +33,7 @@ export const battlechipStats = {
         evolution: null,
         image: "M-Cannon",
     },
+    // Shotgun line
     "Shotgun": {
         name: "Shotgun",
         type: "attack",
@@ -39,7 +41,7 @@ export const battlechipStats = {
         area: "Shotgun",
         delay: 300,
         damage: 30,
-        cooldown: 3000,
+        cooldown: 2000,
         evolution: "SideGun",
         image: "Shotgun",
     },
@@ -50,7 +52,7 @@ export const battlechipStats = {
         area: "SideGun",
         delay: 300,
         damage: 30,
-        cooldown: 3000,
+        cooldown: 2000,
         evolution: "CrossGun",
         image: "SideGun",
     },
@@ -61,8 +63,42 @@ export const battlechipStats = {
         area: "CrossGun",
         delay: 300,
         damage: 30,
-        cooldown: 3000,
+        cooldown: 2500,
         evolution: null,
         image: "CrossGun",
+    },
+    // Sword line
+    "Sword": {
+        name: "Sword",
+        type: "attack",
+        element: "norm",
+        area: "Melee",
+        delay: 180,
+        damage: 80,
+        cooldown: 4000,
+        evolution: "WideSword",
+        image: "Sword",
+    },
+    "WideSword": {
+        name: "Wide Sword",
+        type: "attack",
+        element: "norm",
+        area: "WideMelee",
+        delay: 180,
+        damage: 80,
+        cooldown: 4500,
+        evolution: "LongSword",
+        image: "WideSword",
+    },
+    "LongSword": {
+        name: "Long Sword",
+        type: "attack",
+        element: "norm",
+        area: "LongMelee",
+        delay: 180,
+        damage: 80,
+        cooldown: 4500,
+        evolution: null,
+        image: "LongSowrd",
     }
 }
