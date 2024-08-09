@@ -40,8 +40,8 @@ CrossGun
 [(_)][(B)][(_)]
 [___][(_)][___]
 
-[___][___][___]
 [___][_A_][___]
+[___][___][___]
 [___][___][___]
 Description: Three cells (2 cells if player centered) in +-shape with depth=1, i.e. one cell in between
 */
@@ -91,5 +91,53 @@ Bomb
 [___][___][___]
 [___][_A_][___]
 [___][___][___]
+Description: Three cells (2 cells if player A non-centered) in a row with depth=2, i.e. two cell in between
+*/
+
+/*
+SideBomb
+[___][___][___]
+[(_)][(B)][(_)]
+[___][___][___]
+
+[___][___][___]
+[___][_A_][___]
+[___][___][___]
 Description: Once cell with depth=2, i.e. two cells in between
+*/
+
+/*
+CrossGun
+[___][(_)][___]
+[(_)][(B)][(_)]
+[___][(_)][___]
+
+[___][___][___]
+[___][_A_][___]
+[___][___][___]
+Description: Three cells (2 cells if player centered) in +-shape with depth=2, i.e. two cell in between
+*/
+
+/*
+Column
+[___][(_)][___]
+[___][(B)][___]
+[___][(_)][___]
+
+[___][___][___]
+[___][_A_][___]
+[___][___][___]
+Description: Full Column starting at player A's position
+*/
+
+/*
+Self
+[___][___][___]
+[___][_B_][___]
+[___][___][___]
+
+[___][___][___]
+[___][(A)][___]
+[___][___][___]
+Description: Current cell of player A
 */
