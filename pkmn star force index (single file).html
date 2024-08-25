@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+    #game-board {
+        display: grid;
+        grid-template-columns: repeat(3, 50px);
+        grid-template-rows: repeat(6, 50px);
+        gap: 1px;
+        margin: auto;
+        width: max-content;
+    }
+
+    .square {
+        width: 50px;
+        height: 50px;
+        background-color: lightgray;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        font-size: 24px;
+    }
+    </style>
+<title>Pokemon Star Force</title>
+</head>
+<body>
+    <div id="game-area">
+        <h1>Game Area</h1>
+        <div id="game-controls">
+            <button onclick="serverMovePlayerLeft()">Move Left</button>
+            <button onclick="serverMovePlayerRight()">Move Right</button>
+            <button onclick="serverAttack1()">Attack 1</button>
+            <p>Player A HP: <input type="number" id="uiPlayerAHP" disabled></p>
+            <p>Player B HP: <input type="number" id="uiPlayerBHP" disabled></p>
+            <select id="uiPlayerAPokemon" onchange="clientSelectPokemon(), serverPlayer1PokemonHP()">
+                <option disabled selected>Select Pokemon</option>
+                <option value="bulbasaur">Bulbasaur</option>
+                <option value="squirtle">Squirtle</option>
+                <option value="charmander">Charmander</option>
+            </select>
+            <select id="uiAttack1Select" onchange="serverSelectAttack1()">
+                <option disabled selected>Select Battle Card</option>
+                <option value="Cannon">Cannon</option>
+                <option value="Sword">Sword</option>
+            </select>
+            <select id="uiAttack2Select" onchange="serverSelectAttack2()">
+                <option disabled selected>Select Battle Card</option>
+                <option value="Cannon">Cannon</option>
+                <option value="Sword">Sword</option>
+            </select>
+        </div>
+        <div id="game-board">
+            <div class="square" id="square-0-0"></div>
+            <div class="square" id="square-0-1"></div>
+            <div class="square" id="square-0-2"></div>
+            <div class="square" id="square-1-0"></div>
+            <div class="square" id="square-1-1"></div>
+            <div class="square" id="square-1-2"></div>
+            <div class="square" id="square-2-0"></div>
+            <div class="square" id="square-2-1"></div>
+            <div class="square" id="square-2-2"></div>
+            <div class="square" id="square-3-0"></div>
+            <div class="square" id="square-3-1"></div>
+            <div class="square" id="square-3-2"></div>
+            <div class="square" id="square-4-0"></div>
+            <div class="square" id="square-4-1"></div>
+            <div class="square" id="square-4-2"></div>
+            <div class="square" id="square-5-0"></div>
+            <div class="square" id="square-5-1"></div>
+            <div class="square" id="square-5-2"></div>
+        </div>
+    </div>
+    <div id="dev-area">
+        <h1>Dev Area</h1>
+        <pre id="uiGameStatus"></pre>
+    </div>
+    <script>
+        var GameStatus = {
+            "playerA": {
+                hp: null,
+                pokemon: "bulbasaur",
+                position: {
+                    x: 0,
+                    y: 5
+                },
+                attack1: {
+                    battlecard: null,
+                    active: true,
+                    damage: 0,
+                    delay: 0,
+                    cooldown: 0
+                },
+                attack2: {
+                    battlecard: null,
+                    active: true,
+                    damage: 0,
+                    delay: 0,
+                    cooldown: 0
+                }
+            },
+            "playerB": {
+                hp: null,
+                pokemon: "squirtle",
+                position: {
+                    x: 2,
+                    y: 0
+                }
+            }
+        }
+        
+        const pokedex = {
+            "bulbasaur": {
+                hp: 450
+            },
+            "squirtle": {
+                hp: 550
+            },
+            "charmander": {
+                hp: 500
+            }
+        }
+
+        const BattleCardLibrary = {
+            "Cannon": {
+                damage: 60,
+                delay: 400,
+                cooldown: 3000
+            },
+            "Sword": {
+                damage: 80,
+                delay: 200,
+                cooldown: 4000
+            }
+        }
+
+        function clientSelectPokemon() {
+            GameStatus.playerA.pokemon = document.getElementById("uiPlayerAPokemon").value;
+            document.getElementById("uiPlayerAPokemon").disabled = true;
+        }
+        
+        function serverPlayer1PokemonHP() {
+            const PlayerASelectedPokemon = GameStatus.playerA.pokemon;
+            const PlayerAHP = pokedex[PlayerASelectedPokemon]?.hp || 'Unknown';
+            GameStatus.playerA.hp = PlayerAHP;
+            const PlayerBSelectedPokemon = GameStatus.playerB.pokemon;
+            const PlayerBHP = pokedex[PlayerBSelectedPokemon]?.hp || 'Unknown';
+            GameStatus.playerB.hp = PlayerBHP;
+        }
+
+        function clientPlayerHP() {
+            document.getElementById('uiPlayerAHP').value = GameStatus.playerA.hp;
+            document.getElementById('uiPlayerBHP').value = GameStatus.playerB.hp;
+        }
+
+        function serverMovePlayerRight() {
+            if (GameStatus.playerA.position.x <2) {
+                GameStatus.playerA.position.x = GameStatus.playerA.position.x + 1
+            } 
+        }
+
+        function serverMovePlayerLeft() {
+            if (GameStatus.playerA.position.x > 0) {
+                GameStatus.playerA.position.x = GameStatus.playerA.position.x - 1
+            } 
+        }
+
+        function serverSelectAttack2() {
+            var selectedBattleCard = document.getElementById('uiAttack2Select').value;
+            GameStatus.playerA.attack2.battlecard = selectedBattleCard;
+            if (selectedBattleCard && BattleCardLibrary[selectedBattleCard]) {
+                const cardData = BattleCardLibrary[selectedBattleCard];
+                GameStatus.playerA.attack2.damage = cardData.damage;
+                GameStatus.playerA.attack2.delay = cardData.delay;
+                GameStatus.playerA.attack2.cooldown = cardData.cooldown;
+            }
+            document.getElementById("uiAttack2Select").disabled = true;
+        } 
+
+        function serverSelectAttack1() {
+            var selectedBattleCard = document.getElementById('uiAttack1Select').value;
+            GameStatus.playerA.attack1.battlecard = selectedBattleCard;
+            if (selectedBattleCard && BattleCardLibrary[selectedBattleCard]) {
+                const cardData = BattleCardLibrary[selectedBattleCard];
+                GameStatus.playerA.attack1.damage = cardData.damage;
+                GameStatus.playerA.attack1.delay = cardData.delay;
+                GameStatus.playerA.attack1.cooldown = cardData.cooldown;
+            }
+            document.getElementById("uiAttack1Select").disabled = true;
+        } 
+
+        // Work in progress here:
+        function serverAttack1() {
+            if (GameStatus.playerA.attack1.active = true) {
+                GameStatus.playerA.attack1.active = false;
+                setTimeout(() => {
+                    if (GameStatus.playerA.position.x === GameStatus.playerB.position.x) {
+                        GameStatus.playerB.hp -= GameStatus.playerA.attack1.damage;
+                        if (GameStatus.playerB.hp < 0) GameStatus.playerB.hp = 0;
+                    }
+                }, GameStatus.playerA.attack1.delay);
+                setTimeout(function() {
+                    GameStatus.playerA.attack1.active = true;
+                }, GameStatus.playerA.attack1.cooldown);
+            }
+        }
+
+        function clientPlayerPosition() {
+            document.querySelectorAll('.square').forEach(square => {
+                square.innerHTML = '';
+            });
+            const playerASquare = document.getElementById(`square-${GameStatus.playerA.position.y}-${GameStatus.playerA.position.x}`);
+            var playerAImg = document.createElement('img');
+            playerAImg.src = "https://img.pokemondb.net/sprites/black-white/anim/back-normal/" + GameStatus.playerA.pokemon + ".gif";
+            playerAImg.classList.add('player-image');
+            playerASquare.appendChild(playerAImg);
+            const playerBSquare = document.getElementById(`square-${GameStatus.playerB.position.y}-${GameStatus.playerB.position.x}`);
+            var playerBImg = document.createElement('img');
+            playerBImg.src = "https://img.pokemondb.net/sprites/black-white/anim/normal/" + GameStatus.playerB.pokemon + ".gif";;
+            playerBImg.classList.add('player-image');
+            playerBSquare.appendChild(playerBImg);
+        }
+
+        function clientRender() {
+            clientPlayerPosition();
+            clientPlayerHP();
+        }
+        
+        document.getElementById('game-controls').addEventListener("click", clientDisplayDevGameStatus);
+        document.getElementById('game-controls').addEventListener("change", clientDisplayDevGameStatus);
+
+        function clientDisplayDevGameStatus() {
+            const gameStatusJson = JSON.stringify(GameStatus, null, 2);
+            const preElement = document.getElementById('uiGameStatus');
+            preElement.textContent = gameStatusJson;
+            clientRender();
+        }
+    </script>
+</body>
+</html>
